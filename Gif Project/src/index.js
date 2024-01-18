@@ -1,5 +1,6 @@
 import { q } from './events/helpers.js';
 import { loadPage } from './events/navigation-events.js';
+import { renderSearchItems } from './events/search-events.js';
 
 document.addEventListener('DOMContentLoaded', (ev) => {
     // trending event listener
@@ -8,8 +9,8 @@ document.addEventListener('DOMContentLoaded', (ev) => {
     });
     
     // search event listener
-    q('input#search').addEventListener('input', () => {
-        console.log('search');
+    q('input#search').addEventListener('input', (ev) => {
+        renderSearchItems(ev.target.value);
     });
 
     // upload event listener

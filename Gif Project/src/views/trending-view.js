@@ -5,7 +5,7 @@ export const toTrendingView = (trendingGifs) => `
 `;
 
 
-const toSingleTrendingView = (singleTrendingGif) => `
+export const toSingleTrendingView = (singleTrendingGif) => `
   <a href="#" id="${singleTrendingGif.id}">
     <img src="${singleTrendingGif.images.fixed_width.url}">
   </a>
