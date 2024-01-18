@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', (ev) => {
     // search event listener
 
     // upload event listener
-    document.querySelector('#upload').addEventListener('click', (ev) => {
+    q('a#upload').addEventListener('click', (ev) => {
         console.log('Upload');
     });
 
