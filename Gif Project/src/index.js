@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', (ev) => {
     });
     
     // search event listener
-    q('input#search').addEventListener('click', () => {
+    q('input#search').addEventListener('input', () => {
         console.log('search');
     });
 
