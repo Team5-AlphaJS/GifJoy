@@ -1,3 +1,5 @@
+import { loadTrendingGifs } from "../requests/request-service.js";
+import { toTrendingView } from "../views/trending-view.js";
 import { q } from "./helpers.js";
 
 export const loadPage = (page = '') => {
