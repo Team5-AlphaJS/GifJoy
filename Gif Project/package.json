@@ -5,13 +5,15 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "live-server ."
+    "start": "live-server .",
+    "lint": "eslint ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "eslint": "^8.56.0"
+    "eslint": "^8.56.0",
+    "eslint-config-google": "^0.14.0"
   },
   "devDependencies": {
     "live-server": "^1.2.2"
