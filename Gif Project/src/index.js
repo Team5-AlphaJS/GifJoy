@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', (ev) => {
 
     // upload event listener
     q('a#upload').addEventListener('click', (ev) => {
-        console.log('Upload');
+       loadPage(ev.target.id);
     });
 
 });

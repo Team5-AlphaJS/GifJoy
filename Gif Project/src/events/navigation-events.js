@@ -10,6 +10,7 @@ export const loadPage = (page = '') => {
         case 'search':
 
         case 'upload':
+            return renderUploadView();
 
         default: return null;
     }
@@ -19,4 +20,13 @@ const renderTrendingGifs = async() => {
     const trendingGifs = await loadTrendingGifs();
 
     q('div#content-container').innerHTML = toTrendingView(trendingGifs);
+}
+
+const renderUploadView = () => {
+    // console.log('upload view');
+    q('div#content-container').innerHTML = toUpladView();
+    q('input[type="submit"]').addEventListener('click', async (ev) => {
+       ev.preventDefault();
+        await uploadGif();
+    });
 }
