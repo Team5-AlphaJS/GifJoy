@@ -1,14 +1,24 @@
 body {
-  font-family: 'roboto', Arial, sans-serif;
+  font-family: Roboto, Arial, sans-serif;
   background-color: #f9faf8;
   padding: 0px;
   margin: 0px;
   
 }
 
-#container {
+#content-container {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#trending-view {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
 }
 
 /* Nav bar */
@@ -31,6 +41,9 @@ ul {
 a {
   text-decoration: none;
   color: #e5e7eb;
+}
+a#random-gif {
+  color: #1f2937;
 }
 #search{
   display: flex;

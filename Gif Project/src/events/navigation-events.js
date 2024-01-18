@@ -18,7 +18,7 @@ export const loadPage = (page = '') => {
 
         default: return null;
     }
-}
+};
 
 const renderHome = () => {
     q('div#content-container').innerHTML = toHomeView();
@@ -47,7 +47,7 @@ const renderUploadView = () => {
 
         const options = {
             method: 'POST',
-            body: formData
+            body: formData,
         };
 
         await uploadGif(options);
