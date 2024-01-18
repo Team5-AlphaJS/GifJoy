@@ -4,7 +4,6 @@ import { loadPage } from './events/navigation-events.js';
 document.addEventListener('DOMContentLoaded', (ev) => {
     // trending event listener
     q('a#trending').addEventListener('click', (ev) => {
-        console.log('trending');
         loadPage(ev.target.id);
     });
     
