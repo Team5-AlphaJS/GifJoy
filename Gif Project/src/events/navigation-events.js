@@ -43,3 +43,4 @@ const renderUploadView = () => {
         await uploadGif(options);
     });
 }
+
