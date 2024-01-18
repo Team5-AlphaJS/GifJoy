@@ -7,7 +7,7 @@ import { q } from './events/helpers.js';
     });
     // search event listener
     document.addEventListener('DOMContentLoaded'), (ev) => {
-      q('input#search').addEventListener('click', () =>
+      q('input#search').addEventListener('input', () =>
       console.log('search'));
     }
     // upload event listener
