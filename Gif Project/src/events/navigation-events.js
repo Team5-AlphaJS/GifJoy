@@ -1,7 +1,7 @@
-export const loadPage = (page = '') => {
-    switch (page) {
+export const loadPage = (page='') => {
+    switch(page) {
         case 'trending':
-
+        
         case 'search':
 
         case 'upload':
