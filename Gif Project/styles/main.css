@@ -1,14 +1,16 @@
 body {
-  font-family: 'roboto', Arial, sans-serif;
-  background-color: #f9faf8;
+  font-family: 'roboto', Arial, sans-serif;  
+  background-size: 1260px;
   padding: 0px;
   margin: 0px;
-  
+  background-color: aliceblue;
 }
 
 #container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  padding-right: 400px;
+  justify-content: center;
 }
 
 /* Nav bar */
@@ -20,6 +22,8 @@ nav {
   color: #f9faf8;
   font-size: 18px;
   align-items: center;
+  background-image: url("../src/assets/background-photo.jpg");
+  background-size: 600px;
 }
 ul {
   list-style: none;
@@ -27,32 +31,51 @@ ul {
   padding: 0px;
   margin: 0px;
   gap: 8px;
+  color: #1f2937;
 }
 a {
   text-decoration: none;
-  color: #e5e7eb;
+  color: #000000;
+  font-size: 24px;
 }
 #search{
   display: flex;
-  background-color: wheat;
+  flex-grow: 0.5;
+  background-color: rgb(245, 239, 229);
   font-size: 34px;
 }
 nav a:hover {
-  color: rgb(198, 115, 247);
+  color: rgb(239, 223, 247);
 }
 
+#trending-view{
+  display: flex;
+  justify-content: center;
+}
+
+div {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+form {
+  display: flex;
+  background-color: aqua;
+}
 
 header {
   display: flex;
   height: 20px;
-  background: cornflowerblue;
+  background: cornflowerblue;opacity: 0.3;
 }
 
 footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px;
-  background-color: #1f2937;
-  color: #f9faf8;
+  align-self: flex-end;
+  padding: 10px;
+  background-image: url("../src/assets/background-photo.jpg");
+  background-size: 200px;
+  color: #081a2f;
 }
