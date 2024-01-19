@@ -76,11 +76,15 @@ div {
 
 form {
   display: flex;
+  width: 40%;
+  margin: 0 auto;
   flex-direction: row;
-  background-color: rgb(246, 94, 165);
-  height: 100px;
-  align-items: center;
+  background-color: rgb(253, 252, 216);
+  justify-content: space-around;
+  padding: 5px;
+  border: 2px solid rgb(247, 165, 206);
 }
+
 
 header {
   display: flex;
