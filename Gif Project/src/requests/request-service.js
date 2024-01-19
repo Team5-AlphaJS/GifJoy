@@ -7,6 +7,13 @@ export const loadRandomGif = async () => {
   return randomGif.data;
 };
 
+export const loadGifById = async (id) => {
+  const response = await fetch(`https://api.giphy.com/v1/gifs/${id}?api_key=${apiKey}&rating=g`);
+  const gif = await response.json();
+
+  return gif.data;
+};
+
 export const loadTrendingGifs = async () => {
   const response = await fetch(trendingUrl);
   const trendingGifs = await response.json();

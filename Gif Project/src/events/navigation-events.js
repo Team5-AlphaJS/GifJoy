@@ -1,9 +1,11 @@
 import { loadTrendingGifs, uploadGif } from "../requests/request-service.js";
+import { toGifDetailedView } from "../views/gif-detailed-view.js";
 import { toHomeView } from "../views/home-view.js";
 import { toTrendingView } from "../views/trending-view.js";
 import { toUploadView } from "../views/uploadView.js";
 import { q } from "./helpers.js";
 import { renderRandomGif } from "./random-gif-events.js";
+import { loadGifById } from "../requests/request-service.js";
 
 export const loadPage = (page = '') => {
     switch (page) {
@@ -25,6 +27,12 @@ const renderHome = () => {
     q('a#random-gif').addEventListener('click', () => {
         renderRandomGif();
     });
+};
+
+export const renderGifDetails = async (id) => {
+    const gif = await loadGifById(id);
+
+    q('div#content-container').innerHTML = toGifDetailedView(gif);
 };
 
 const renderTrendingGifs = async () => {
