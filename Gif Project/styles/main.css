@@ -10,13 +10,15 @@ body {
 
 #content-container {
   display: flex;
-  flex-direction: column;
-  padding-right: 400px;
-  justify-content: center;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-around;
+  width: 70%;
+  margin: 0 auto;
 }
-
+#content-container img {
+  height: 100%;
+  margin: 0px;
+  display: block;
+}
 #trending-view {
   display: flex;
   flex-wrap: wrap;
@@ -74,7 +76,10 @@ div {
 
 form {
   display: flex;
-  background-color: aqua;
+  flex-direction: row;
+  background-color: rgb(246, 94, 165);
+  height: 100px;
+  align-items: center;
 }
 
 header {
