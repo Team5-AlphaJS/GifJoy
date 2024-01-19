@@ -24,23 +24,22 @@ document.addEventListener('DOMContentLoaded', (ev) => {
     });
 
     // global event listener
-    document.addEventListener('click', e => {
-      if (e.target.tagName === 'IMG' && e.target.classList.contains('gif')) {
-        renderGifDetails(e.target.getAttribute('id'));
+    document.addEventListener('click', async (ev) => {
+      if (ev.target.tagName === 'IMG' && ev.target.classList.contains('gif')) {
+        renderGifDetails(ev.target.getAttribute('id'));
       };
 
-      if (e.target.tagName === 'BUTTON' && e.target.classList.contains('share-button')) {
-        const gifId = e.target.getAttribute('id');
+      if (ev.target.tagName === 'BUTTON' && ev.target.classList.contains('share-button')) {
+        const gifId = ev.target.getAttribute('id');
 
         const url = `https://i.giphy.com/${gifId}.webp`;
 
-        navigator.clipboard.writeText(url)
-          .then(() => {
-            alert('URL copied successfully!');
-          })
-          .catch(() => {
-            alert('Error copying URL to clipboard');
-          });
+        try {
+          await navigator.clipboard.writeText(url);
+          alert('URL copied successfully!');
+        } catch (error) {
+          alert('Error copying URL to clipboard');
+        }
       }
     });
 
