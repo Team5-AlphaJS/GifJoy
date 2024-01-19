@@ -35,13 +35,12 @@ document.addEventListener('DOMContentLoaded', (ev) => {
 
             const url = `https://i.giphy.com/${gifId}.webp`;
 
-            navigator.clipboard.writeText(url)
-                .then(() => {
-                    alert('URL copied successfully!');
-                })
-                .catch(() => {
-                    alert('Error copying URL to clipboard');
-                });
+            try {
+                await navigator.clipboard.writeText(url);
+                alert('URL copied successfully!');
+            } catch (error) {
+                alert('Error copying URL to clipboard');
+            }
         }
 
         if (e.target.tagName === 'INPUT' && e.target.getAttribute('type') === 'submit') {
