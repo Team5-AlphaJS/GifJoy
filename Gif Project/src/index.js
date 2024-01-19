@@ -1,11 +1,12 @@
 import { q } from './events/helpers.js';
-import { loadPage, renderGifDetails } from './events/navigation-events.js';
+import { loadPage, renderGifDetails, renderUploadView } from './events/navigation-events.js';
 import { renderSearchItems } from './events/search-events.js';
 import { renderRandomGif } from './events/random-gif-events.js';
+import { onUpload } from './events/upload-events.js';
 
 document.addEventListener('DOMContentLoaded', (ev) => {
     q('a#home').addEventListener('click', (ev) => {
-      loadPage(ev.target.id);
+        loadPage(ev.target.id);
     });
 
     // trending event listener
@@ -20,28 +21,33 @@ document.addEventListener('DOMContentLoaded', (ev) => {
 
     // upload event listener
     q('a#upload').addEventListener('click', (ev) => {
-       loadPage(ev.target.id);
+        loadPage(ev.target.id);
     });
 
     // global event listener
-    document.addEventListener('click', e => {
-      if (e.target.tagName === 'IMG' && e.target.classList.contains('gif')) {
-        renderGifDetails(e.target.getAttribute('id'));
-      };
+    document.addEventListener('click', async (e) => {
+        if (e.target.tagName === 'IMG' && e.target.classList.contains('gif')) {
+            renderGifDetails(e.target.getAttribute('id'));
+        };
 
-      if (e.target.tagName === 'BUTTON' && e.target.classList.contains('share-button')) {
-        const gifId = e.target.getAttribute('id');
+        if (e.target.tagName === 'BUTTON' && e.target.classList.contains('share-button')) {
+            const gifId = e.target.getAttribute('id');
 
-        const url = `https://i.giphy.com/${gifId}.webp`;
+            const url = `https://i.giphy.com/${gifId}.webp`;
 
-        navigator.clipboard.writeText(url)
-          .then(() => {
-            alert('URL copied successfully!');
-          })
-          .catch(() => {
-            alert('Error copying URL to clipboard');
-          });
-      }
+            navigator.clipboard.writeText(url)
+                .then(() => {
+                    alert('URL copied successfully!');
+                })
+                .catch(() => {
+                    alert('Error copying URL to clipboard');
+                });
+        }
+
+        if (e.target.tagName === 'INPUT' && e.target.getAttribute('type') === 'submit') {
+            await onUpload(e);
+            await renderUploadView();
+        }
     });
 
     loadPage('home');

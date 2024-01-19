@@ -6,6 +6,7 @@ import { toUploadView } from "../views/uploadView.js";
 import { q } from "./helpers.js";
 import { renderRandomGif } from "./random-gif-events.js";
 import { loadGifById } from "../requests/request-service.js";
+import { addUploaded, getUploaded } from "../data/uploaded.js";
 
 export const loadPage = (page = '') => {
     switch (page) {
@@ -41,19 +42,11 @@ const renderTrendingGifs = async () => {
     q('div#content-container').innerHTML = toTrendingView(trendingGifs);
 };
 
-const renderUploadView = () => {
-    q('div#content-container').innerHTML = toUploadView();
-    q('input[type="submit"]').addEventListener('click', async (ev) => {
-        ev.preventDefault();
-
-        const fileInput = q('input[name="gif-file"]');
-        const gifFile = fileInput.files[0];
-
-        const formData = new FormData();
-        formData.append('file', gifFile);
-        
-        const response = await uploadGif(formData);
-        const uploadedId = response.data.id;
-        console.log(uploadedId);
-    });
+export const renderUploadView = async () => {
+    const uploadedIds = getUploaded();
+    const uploadedGifs = [];
+    for (const id of uploadedIds) {
+        uploadedGifs.push(await loadGifById(id));
+    }
+    q('div#content-container').innerHTML = toUploadView(uploadedGifs);
 };
