@@ -7,11 +7,15 @@ export const loadTrendingGifs = async () => {
   return trendingGifs.data;
 }
 
-export const uploadGif = async (options) => {
-  
+export const uploadGif = async (file) => {
+  const options = {
+    method: 'POST',
+    body: file
+  }
   const response = await fetch(uploadUrl, options);
   const data = await response.json();
-  console.log(data);
+
+  return data;
 }
 
 export const loadSearch = async (searchTerm) => {
