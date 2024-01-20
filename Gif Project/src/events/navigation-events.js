@@ -10,6 +10,7 @@ import { addUploaded, getUploaded } from "../data/uploaded.js";
 import { toFavoritesView } from "../views/favorites-view.js";
 import { getFavorites } from "../data/favorites.js";
 import { toAboutView } from "../views/about-view.js";
+import { toFavoritesViewNoGifs } from "../views/favourites-view-no-gifs.js";
 
 export const loadPage = (page = '') => {
     switch (page) {
@@ -65,14 +66,15 @@ const renderFavoritesView = async () => {
 
     if (favorites.length === 0) {
         const randomGif = await loadRandomGif();
-        // will be finished later
+
+        q('div#content-container').innerHTML = toFavoritesViewNoGifs(randomGif);
+    } else {
+        const gifPromises = favorites.map(id => loadGifById(id));
+
+        const gifs = await Promise.all(gifPromises);
+
+        q('div#content-container').innerHTML = toFavoritesView(gifs);
     }
-
-    const gifPromises = favorites.map(id => loadGifById(id));
-
-    const gifs = await Promise.all(gifPromises);
-
-    q('div#content-container').innerHTML = toFavoritesView(gifs);
 };
 
 const renderAboutView = () => {
