@@ -1,4 +1,4 @@
-import { loadTrendingGifs, uploadGif } from "../requests/request-service.js";
+import { loadRandomGif, loadTrendingGifs, uploadGif } from "../requests/request-service.js";
 import { toGifDetailedView } from "../views/gif-detailed-view.js";
 import { toHomeView } from "../views/home-view.js";
 import { toTrendingView } from "../views/trending-view.js";
@@ -8,6 +8,8 @@ import { renderRandomGif } from "./random-gif-events.js";
 import { loadGifById } from "../requests/request-service.js";
 import { addUploaded, getUploaded } from "../data/uploaded.js";
 import { toFavoritesView } from "../views/favorites-view.js";
+import { getFavorites } from "../data/favorites.js";
+import { toAboutView } from "../views/about-view.js";
 
 export const loadPage = (page = '') => {
     switch (page) {
@@ -22,6 +24,9 @@ export const loadPage = (page = '') => {
 
         case 'favorites':
             return renderFavoritesView();
+
+        case 'about':
+            return renderAboutView();
 
         default: return null;
     }
@@ -56,5 +61,20 @@ export const renderUploadView = async () => {
 };
 
 const renderFavoritesView = async () => {
-    q('div#content-container').innerHTML = toFavoritesView();
+    const favorites = getFavorites();
+
+    if (favorites.length === 0) {
+        const randomGif = await loadRandomGif();
+        // will be finished later
+    }
+
+    const gifPromises = favorites.map(id => loadGifById(id));
+
+    const gifs = await Promise.all(gifPromises);
+
+    q('div#content-container').innerHTML = toFavoritesView(gifs);
+};
+
+const renderAboutView = () => {
+    q('div#content-container').innerHTML = toAboutView();
 };

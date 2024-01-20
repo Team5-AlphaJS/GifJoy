@@ -1,3 +1,5 @@
+import { renderFavoriteStatus } from "../events/helpers.js";
+
 export const toGifDetailedView = (gif) => `
 <div id="gif-detailed">
   <h1>${gif.title} by ${gif.user.username}</h1>
@@ -9,6 +11,7 @@ export const toGifDetailedView = (gif) => `
         <a href="${gif.user.profile_url}">${gif.user.username}</a>
         <p>Title: Test</p>
         <button class="share-button" id="${gif.id}">Share:</button>
+        ${renderFavoriteStatus(gif.id)}
       </div>
   </div>
 </div>

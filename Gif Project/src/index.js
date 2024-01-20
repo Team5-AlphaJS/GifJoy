@@ -3,6 +3,7 @@ import { loadPage, renderGifDetails, renderUploadView } from './events/navigatio
 import { renderSearchItems } from './events/search-events.js';
 import { renderRandomGif } from './events/random-gif-events.js';
 import { onUpload } from './events/upload-events.js';
+import { toggleFavoriteStatus } from './events/favorites-events.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     q('a#home').addEventListener('click', (e) => {
@@ -27,12 +28,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // favorites event listener
     q('a#favorites').addEventListener('click', (e) =>{
       loadPage(e.target.id);
-  });
+    });
+
+    // about event listener
+    q('a#about').addEventListener('click', (e) =>{
+      loadPage(e.target.id);
+    });
+
     // global event listener
     document.addEventListener('click', async (e) => {
         if (e.target.tagName === 'IMG' && e.target.classList.contains('gif')) {
             renderGifDetails(e.target.getAttribute('id'));
-        };
+        }
 
         if (e.target.tagName === 'BUTTON' && e.target.classList.contains('share-button')) {
             const gifId = e.target.getAttribute('id');
@@ -50,6 +57,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.target.tagName === 'INPUT' && e.target.getAttribute('type') === 'submit') {
             await onUpload(e);
             await renderUploadView();
+        }
+
+        if (e.target.classList.contains('favorite')) {
+          toggleFavoriteStatus(e.target.getAttribute('id'));
         }
     });
 

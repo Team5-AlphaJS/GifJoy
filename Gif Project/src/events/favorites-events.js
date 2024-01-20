@@ -1,13 +1,14 @@
-// import { addFavorite, getFavorites, removeFavorite } from "../data/favorites";
+import { addFavorite, getFavorites, removeFavorite } from "../data/favorites.js";
+import { q, renderFavoriteStatus } from "./helpers.js";
 
-// export const toggleFavoriteStatus = (gifId) => {
-//   const favorites = getFavorites();
+export const toggleFavoriteStatus = (gifId) => {
+  const favorites = getFavorites();
 
-//   if (favorites.includes(gifId)) {
-//     removeFavorite(gifId);
-//   } else {
-//     addFavorite(gifId);
-//   }
-//   // query selector needs implementing , need to adjust gif-detailed-view probably for a button
-//   q(`#${gifId}`).innerHTML = renderFavoriteStatus(gifId);
-// };
+  if (favorites.includes(gifId)) {
+    removeFavorite(gifId);
+  } else {
+    addFavorite(gifId);
+  }
+
+  q(`span[id="${gifId}"]`).innerHTML = renderFavoriteStatus(gifId);
+};
