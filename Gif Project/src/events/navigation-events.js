@@ -7,6 +7,7 @@ import { q } from "./helpers.js";
 import { renderRandomGif } from "./random-gif-events.js";
 import { loadGifById } from "../requests/request-service.js";
 import { addUploaded, getUploaded } from "../data/uploaded.js";
+import { toFavoritesView } from "../views/favorites-view.js";
 
 export const loadPage = (page = '') => {
     switch (page) {
@@ -18,6 +19,9 @@ export const loadPage = (page = '') => {
 
         case 'upload':
             return renderUploadView();
+
+        case 'favorites':
+            return renderFavoritesView();
 
         default: return null;
     }
@@ -49,4 +53,8 @@ export const renderUploadView = async () => {
         uploadedGifs.push(await loadGifById(id));
     }
     q('div#content-container').innerHTML = toUploadView(uploadedGifs);
+};
+
+const renderFavoritesView = async () => {
+    q('div#content-container').innerHTML = toFavoritesView();
 };

@@ -4,26 +4,30 @@ import { renderSearchItems } from './events/search-events.js';
 import { renderRandomGif } from './events/random-gif-events.js';
 import { onUpload } from './events/upload-events.js';
 
-document.addEventListener('DOMContentLoaded', (ev) => {
-    q('a#home').addEventListener('click', (ev) => {
-        loadPage(ev.target.id);
+document.addEventListener('DOMContentLoaded', () => {
+    q('a#home').addEventListener('click', (e) => {
+        loadPage(e.target.id);
     });
 
     // trending event listener
-    q('a#trending').addEventListener('click', (ev) => {
-        loadPage(ev.target.id);
+    q('a#trending').addEventListener('click', (e) => {
+        loadPage(e.target.id);
     });
 
     // search event listener
-    q('input#search').addEventListener('input', (ev) => {
-        renderSearchItems(ev.target.value);
+    q('input#search').addEventListener('input', (e) => {
+        renderSearchItems(e.target.value);
     });
 
     // upload event listener
-    q('a#upload').addEventListener('click', (ev) => {
-        loadPage(ev.target.id);
+    q('a#upload').addEventListener('click', (e) => {
+        loadPage(e.target.id);
     });
 
+    // favorites event listener
+    q('a#favorites').addEventListener('click', (e) =>{
+      loadPage(e.target.id);
+  });
     // global event listener
     document.addEventListener('click', async (e) => {
         if (e.target.tagName === 'IMG' && e.target.classList.contains('gif')) {
