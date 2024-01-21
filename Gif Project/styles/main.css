@@ -10,15 +10,24 @@ body {
 
 #content-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   width: 70%;
   margin: 0 auto;
+  min-height: 86vh;
 }
 #content-container img {
-  height: 100%;
   margin: 0px;
   display: block;
   border-radius: 15%;
+}
+#home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+#logo {
+  width: 100px;
 }
 #trending-view {
   display: flex;
@@ -26,6 +35,41 @@ body {
   justify-content: center;
   align-items: center;
   gap: 5px;
+}
+.favorite {
+  cursor: pointer;
+}
+#gif-detailed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.gif-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-left: 50px;
+}
+#favorites-no-gifs,
+.content-no-gifs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+#favorites,
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+#about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Nav bar */
@@ -77,12 +121,13 @@ div {
 
 form {
   display: flex;
-  width: 40%;
-  margin: 0 auto;
   flex-direction: row;
+  height: 40px;
   background-color: rgb(253, 252, 216);
-  justify-content: space-around;
+  justify-content: center;
   padding: 5px;
+  margin-top: 10px;
+  margin-left: 10px;
   border: 2px solid rgb(247, 165, 206);
 }
 
