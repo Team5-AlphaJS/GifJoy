@@ -24,13 +24,13 @@ export const loadTrendingGifs = async () => {
 export const uploadGif = async (file) => {
   const options = {
     method: 'POST',
-    body: file
-  }
+    body: file,
+  };
   const response = await fetch(uploadUrl, options);
   const data = await response.json();
 
   return data;
-}
+};
 
 export const loadSearch = async (searchTerm) => {
 

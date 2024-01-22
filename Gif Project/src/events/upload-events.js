@@ -13,6 +13,6 @@ export const onUpload = async (ev) => {
 
     const response = await uploadGif(formData);
     const uploadedId = response.data.id;
-    
+
     addUploaded(uploadedId);
-}
+};
