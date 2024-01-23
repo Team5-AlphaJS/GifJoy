@@ -5,6 +5,7 @@ body {
   padding: 0px;
   margin: 0px;
   background-color: aliceblue;
+  transition: background-color 0.3s ease-in-out;
 }
 
 body.dark-mode {
@@ -14,6 +15,7 @@ body.dark-mode {
   margin: 0px;
   background-color: #1f2937;
   color: #f9faf8;
+  transition: background-color 0.3s ease-in-out;
 }
 
 body.dark-mode a#random-gif {
