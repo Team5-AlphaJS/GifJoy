@@ -6,7 +6,7 @@ import { toggleFavoriteStatus } from './events/favorites-events.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     // dark mode logic
-    const darkModeToggle = document.getElementById('darkModeToggle');
+    const darkModeToggle = q('#darkModeToggle');
 
     const toggleMode = (isDarkMode) => {
       document.body.classList.toggle('dark-mode', isDarkMode);
