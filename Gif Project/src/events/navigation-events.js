@@ -1,16 +1,14 @@
-import { loadRandomGif, loadTrendingGifs, uploadGif } from "../requests/request-service.js";
+import { loadRandomGif, loadTrendingGifs } from "../requests/request-service.js";
 import { toGifDetailedView } from "../views/gif-detailed-view.js";
 import { toHomeView } from "../views/home-view.js";
 import { toTrendingView } from "../views/trending-view.js";
 import { toUploadView } from "../views/uploadView.js";
 import { q } from "./helpers.js";
-import { renderRandomGif } from "./random-gif-events.js";
 import { loadGifById } from "../requests/request-service.js";
-import { addUploaded, getUploaded } from "../data/uploaded.js";
+import { getUploaded } from "../data/uploaded.js";
 import { toFavoritesView } from "../views/favorites-view.js";
 import { getFavorites } from "../data/favorites.js";
 import { toAboutView } from "../views/about-view.js";
-import { toFavoritesViewNoGifs } from "../views/favourites-view-no-gifs.js";
 
 export const loadPage = (page = '') => {
     switch (page) {
@@ -33,11 +31,9 @@ export const loadPage = (page = '') => {
     }
 };
 
-const renderHome = () => {
-    q('div#content-container').innerHTML = toHomeView();
-    q('a#random-gif').addEventListener('click', () => {
-        renderRandomGif();
-    });
+const renderHome = async () => {
+    const randomGif = await loadRandomGif();
+    q('div#content-container').innerHTML = toHomeView(randomGif);
 };
 
 export const renderGifDetails = async (id) => {
@@ -61,19 +57,19 @@ export const renderUploadView = async () => {
     q('div#content-container').innerHTML = toUploadView(uploadedGifs);
 };
 
-const renderFavoritesView = async () => {
+export const renderFavoritesView = async () => {
     const favorites = getFavorites();
 
     if (favorites.length === 0) {
         const randomGif = await loadRandomGif();
 
-        q('div#content-container').innerHTML = toFavoritesViewNoGifs(randomGif);
+        q('div#content-container').innerHTML = toFavoritesView(randomGif);
     } else {
         const gifPromises = favorites.map(id => loadGifById(id));
 
         const gifs = await Promise.all(gifPromises);
 
-        q('div#content-container').innerHTML = toFavoritesView(gifs);
+        q('div#content-container').innerHTML = toFavoritesView(gifs, true);
     }
 };
 

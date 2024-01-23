@@ -1,15 +1,8 @@
-import { renderFavoriteStatus } from "../events/helpers.js";
+import { toSingleView } from './single-gif.js';
 
 export const toTrendingView = (trendingGifs) => `
   <div id="trending-view">
-  ${trendingGifs.map(toSingleTrendingView).join('')}
+    <h1>Trending GIFs</h1>
+    ${trendingGifs.map(toSingleView).join('')}
   </div>
-`;
-
-
-export const toSingleTrendingView = (singleTrendingGif) => `
-  <a href="#">
-    <img class="gif" id="${singleTrendingGif.id}" src="${singleTrendingGif.images.fixed_width.url}">
-    ${renderFavoriteStatus(singleTrendingGif.id)}
-  </a>
 `;

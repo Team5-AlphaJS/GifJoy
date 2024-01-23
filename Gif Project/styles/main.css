@@ -34,6 +34,7 @@ body.dark-mode #search{
   display: flex;
   flex-grow: 0.5;
   background-color: rgb(10, 16, 26);
+  color: white;
   font-size: 34px;
   border: 2px solid rgb(39, 74, 214);
 }
@@ -86,6 +87,14 @@ body.dark-mode form {
   justify-content: center;
   align-items: center;
   gap: 5px;
+}
+#trending-view>* {
+  margin-bottom: 1.5em;
+  break-inside: avoid;
+  object-fit: contain;
+  cursor: pointer;
+  transition: 200ms;
+  position: static;
 }
 .favorite {
   cursor: pointer;

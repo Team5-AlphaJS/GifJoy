@@ -1,9 +1,9 @@
-import { toSingleTrendingView } from "./trending-view.js";
+import { toSingleView } from './single-gif.js';
 
 
 export const toUploadView = (uploaded) => `
 <div id="uploaded">
-    ${uploaded.map(toSingleTrendingView)}
+    ${uploaded.map(toSingleView)}
 </div>
 <form>
     <input type="file" name="gif-file" accept=".gif">

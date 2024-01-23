@@ -10,5 +10,5 @@ export const toggleFavoriteStatus = (gifId) => {
     addFavorite(gifId);
   }
 
-  q(`span[id="${gifId}"]`).innerHTML = renderFavoriteStatus(gifId);
+  q(`span[data-gif-id="${gifId}"]`).innerHTML = renderFavoriteStatus(gifId);
 };
