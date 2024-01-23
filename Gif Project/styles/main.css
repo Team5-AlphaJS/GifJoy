@@ -1,11 +1,60 @@
 body {
   font-family: Roboto, Arial, sans-serif;
   background-color: #f9faf8;
-  font-family: 'roboto', Arial, sans-serif;  
   background-size: 1260px;
   padding: 0px;
   margin: 0px;
   background-color: aliceblue;
+}
+
+body.dark-mode {
+  font-family: Roboto, Arial, sans-serif;
+  background-size: 1260px;
+  padding: 0px;
+  margin: 0px;
+  background-color: #1f2937;
+  color: #f9faf8;
+}
+
+body.dark-mode a#random-gif {
+  color: #f9faf8;
+}
+
+body.dark-mode .gif-info a {
+  color: #f9faf8;
+}
+
+body.dark-mode .favorite {
+  color: #f9faf8;
+}
+
+body.dark-mode #search{
+  display: flex;
+  flex-grow: 0.5;
+  background-color: rgb(10, 16, 26);
+  font-size: 34px;
+  border: 2px solid rgb(39, 74, 214);
+}
+
+body.dark-mode form {
+  height: 30px;
+  background-color: rgb(10, 16, 26);
+  padding: 5px;
+  margin-top: 10px;
+  margin-left: 10px;
+  border: 2px solid rgb(39, 74, 214);
+}
+
+#darkModeToggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  padding: 0;
+}
+
+#darkModeToggle:hover {
+  color: rgb(239, 223, 247);
 }
 
 #content-container {
@@ -13,7 +62,7 @@ body {
   justify-content: center;
   width: 70%;
   margin: 0 auto;
-  min-height: 86vh;
+  min-height: 86.2vh;
 }
 #content-container img {
   margin: 0px;
@@ -77,12 +126,11 @@ body {
 nav {
   display: flex;
   justify-content: space-around;
-  background-color: #1f2937;
   color: #f9faf8;
   font-size: 18px;
   align-items: center;
   background-image: url("../src/assets/background-photo2.jpg");
-  background-size: 600px;
+  background-size: 800px;
 }
 ul {
   list-style: none;
@@ -104,6 +152,7 @@ a#random-gif {
   flex-grow: 0.5;
   background-color: rgb(245, 239, 229);
   font-size: 34px;
+  border: 2px solid rgb(138, 120, 255);
 }
 nav a:hover {
   color: rgb(239, 223, 247);
@@ -120,15 +169,12 @@ div {
 }
 
 form {
-  display: flex;
-  flex-direction: row;
-  height: 40px;
+  height: 30px;
   background-color: rgb(253, 252, 216);
-  justify-content: center;
   padding: 5px;
   margin-top: 10px;
   margin-left: 10px;
-  border: 2px solid rgb(247, 165, 206);
+  border: 2px solid rgb(138, 120, 255);
 }
 
 

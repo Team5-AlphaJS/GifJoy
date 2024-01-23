@@ -1,11 +1,29 @@
 import { q } from './events/helpers.js';
 import { loadPage, renderGifDetails, renderUploadView } from './events/navigation-events.js';
 import { renderSearchItems } from './events/search-events.js';
-import { renderRandomGif } from './events/random-gif-events.js';
 import { onUpload } from './events/upload-events.js';
 import { toggleFavoriteStatus } from './events/favorites-events.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+    // dark mode logic
+    const darkModeToggle = document.getElementById('darkModeToggle');
+
+    const toggleMode = (isDarkMode) => {
+      document.body.classList.toggle('dark-mode', isDarkMode);
+    };
+
+    const isDarkMode = localStorage.getItem('darkMode') === 'true';
+
+    toggleMode(isDarkMode);
+
+    darkModeToggle.addEventListener('click', () => {
+      const isDarkModeNow = !document.body.classList.contains('dark-mode');
+      toggleMode(isDarkModeNow);
+
+      localStorage.setItem('darkMode', isDarkModeNow.toString());
+    });
+
+    // home event listener
     q('a#home').addEventListener('click', (e) => {
         loadPage(e.target.id);
     });
@@ -38,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // global event listener
     document.addEventListener('click', async (e) => {
         if (e.target.tagName === 'IMG' && e.target.classList.contains('gif')) {
-            renderGifDetails(e.target.getAttribute('id'));
+            await renderGifDetails(e.target.getAttribute('id'));
         }
 
         if (e.target.tagName === 'BUTTON' && e.target.classList.contains('share-button')) {
