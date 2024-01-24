@@ -7,7 +7,7 @@ import { toSingleView } from './single-gif.js';
  * @return {string} The search view HTML string.
  */
 export const toSearchView = (searchGifs) => `
-  <div id="search-gifs">
+  <div id="search-gifs" class="gifs-container">
     ${searchGifs.map(toSingleView).join('')}
   </div>
 `;

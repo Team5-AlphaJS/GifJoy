@@ -6,12 +6,17 @@ import { toSingleView } from './single-gif.js';
  * @return {string} - The HTML string representing the upload view.
  */
 export const toUploadView = (uploaded) => `
-<div id="uploaded">
-    <h1>Upload GIFs</h1>
-    ${uploaded.map(toSingleView)}
+<div>
+    <form>
+        <input type="file" name="gif-file" accept=".gif">
+        <input type="submit" value="Upload">
+    </form>
+    <div id="uploaded" class="gifs-container">
+
+        <h1>Upload GIFs</h1>
+        ${uploaded.map(toSingleView).join('')}
+    </div>
 </div>
-<form>
-    <input type="file" name="gif-file" accept=".gif">
-    <input type="submit" value="Upload">
-</form>
+
+
 `;

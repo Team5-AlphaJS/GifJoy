@@ -8,7 +8,7 @@ import { toSingleView } from './single-gif.js';
 export const toTrendingView = (trendingGifs) => `
   <div id="trending-view">
     <h1>Top Trending GIFs</h1>
-    <div id="trending-gifs">
+    <div id="trending-gifs" class="gifs-container">
     ${trendingGifs.map(toSingleView).join('')}
     </div>
   </div>

@@ -37,6 +37,7 @@ body.dark-mode #search{
   color: white;
   font-size: 34px;
   border: 2px solid rgb(39, 74, 214);
+  outline: none;
 }
 
 body.dark-mode form {
@@ -97,25 +98,10 @@ body.dark-mode footer {
 #logo {
   width: 120px;
 }
-#trending-gifs,
 #search-gifs {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-gap: 5px;
-  justify-items: center;
-  align-items: center;
-  column-gap: 5px;
-  margin-bottom: 10px;
+  margin-top: 20px;
 }
-#trending-gifs > div,
-#search-gifs > div{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 3%;
-  cursor: pointer;
-  position: relative;
-}
+
 div.gif:hover span.fa,
 div.gif:hover span.fa {
   display: block;
@@ -151,19 +137,7 @@ div.gif:hover span.favorite {
   align-items: center;
   gap: 5px;
 }
-#favorites-gifs {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 5px;
-}
-#favorites-gifs > div{
-  width: 100%;
-  height: 100%;
-  border-radius: 3%;
-  cursor: pointer;
-}
+
 #about {
   display: flex;
   flex-direction: column;
@@ -177,12 +151,10 @@ span.fa {
   color: white;
   display: none;
 }
-div#uploaded {
-  display: flex;
-  flex-direction: column;
-  margin-right: 20px;
-  align-items: center;
+#uploaded {
+  margin-left: 10px;
 }
+
 div#random-gif-container > .gif,
 div#uploaded > .gif {
   cursor: pointer;
@@ -244,32 +216,29 @@ a#random-gif {
   background-color: rgb(245, 239, 229);
   font-size: 34px;
   border: 2px solid rgb(138, 120, 255);
+  outline: none;
 }
 nav a:hover {
   color: rgb(110, 78, 128);
 }
 
-#trending-view{
-  display: flex;
-  justify-content: center;
-}
-
-div {
+div.gif {
   position: relative;
-  display: flex;
-  flex-wrap: wrap;
   border-radius: 3%;
 }
 
 form {
+  display: flex;
+  flex-flow: row wrap;
+  width: 28%;
   height: 30px;
   background-color: rgb(253, 252, 216);
   padding: 5px;
   margin-top: 10px;
   margin-left: 10px;
+  margin-bottom: 10px;
   border: 2px solid rgb(138, 120, 255);
 }
-
 
 header {
   display: flex;
@@ -285,4 +254,17 @@ footer {
   padding: 10px;
   background-image: url("../src/assets/background-photo.jpg");
   color: white;
+}
+
+.gifs-container {
+  columns: 5;
+}
+
+.gifs-container>* {
+  margin-bottom: 1.5em;
+  break-inside: avoid;
+  object-fit: contain;
+  cursor: pointer;
+  transition: 200ms;
+  position: static;
 }

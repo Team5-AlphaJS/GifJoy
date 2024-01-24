@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
             toggleFavoriteStatus(e.target.getAttribute('data-gif-id'));
         }
         if (e.target.classList.contains('favorite') &&
-            e.target.parentNode.parentNode.id === 'favorites') {
+            e.target.parentNode.parentNode.parentNode.id === 'favorites') {
             await renderFavoritesView();
         }
 
