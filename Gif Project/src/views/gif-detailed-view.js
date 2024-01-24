@@ -1,6 +1,11 @@
-import { renderFavoriteStatus } from "../events/helpers.js";
 import { toSingleView } from "./single-gif.js";
 
+/**
+ * Converts a GIF object into a detailed view HTML string.
+ *
+ * @param {Object} gif - The GIF object to be converted.
+ * @return {string} - The HTML string representing the detailed view of the GIF.
+ */
 export const toGifDetailedView = (gif) => `
 <div id="gif-detailed">
    <h1>${gif.title}</h1>

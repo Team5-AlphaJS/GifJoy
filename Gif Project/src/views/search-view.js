@@ -1,7 +1,13 @@
 import { toSingleView } from './single-gif.js';
 
+/**
+ * Converts an array of searchGifs into a search view HTML string.
+ *
+ * @param {Array} searchGifs - The array of searchGifs.
+ * @return {string} The search view HTML string.
+ */
 export const toSearchView = (searchGifs) => `
-  <div id="trending-view">
+  <div id="search-gifs">
     ${searchGifs.map(toSingleView).join('')}
   </div>
 `;

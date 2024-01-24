@@ -1,3 +1,10 @@
+/**
+ * This file contains the main logic for the GifJoy App.
+ * It imports various helper functions and event handlers from other files
+ * to handle navigation, search, favorites, upload, and other functionalities.
+ * The file also includes event listeners for dark mode toggle, search input,
+ * and global click events. It initializes the app by loading the home page.
+ */
 import { q } from './events/helpers.js';
 import { loadPage, renderFavoritesView, renderGifDetails, renderUploadView } from './events/navigation-events.js';
 import { renderSearchItems } from './events/search-events.js';
@@ -9,6 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // dark mode logic
     const darkModeToggle = q('#darkModeToggle');
 
+    /**
+     * Toggles the dark mode of the document body.
+     * @param {boolean} isDarkMode - Indicates whether to enable or disable dark mode.
+     */
     const toggleMode = (isDarkMode) => {
         document.body.classList.toggle('dark-mode', isDarkMode);
     };
@@ -42,7 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.target.id === ABOUT) loadPage(ABOUT);
 
         if (e.target.tagName === 'DIV' && e.target.classList.contains('gif')) {
-            // console.log(e.target);
             await renderGifDetails(e.target.getAttribute('id'));
         }
 
@@ -71,10 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
             await onUpload(e);
             await renderUploadView();
         }
-
-        // if (e.target.classList.contains('favorite')) {
-        //     toggleFavoriteStatus(e.target.getAttribute('id'));
-        // }
     });
 
     loadPage('home');
