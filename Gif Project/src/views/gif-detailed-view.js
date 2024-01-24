@@ -15,8 +15,8 @@ export const toGifDetailedView = (gif) => `
        </div> -->
        ${toSingleView(gif)}
        <div class="gif-info">
-         ${gif.user ? `<a href="${gif.user.profile_url}">User: ${gif.user.username}</a>` : 'User: Unknown'}
-         ${gif.user && gif.user.website_url ? `<a href="${gif.user.website_url}" target="_blank">User's website` : ''}
+         ${gif.user ? `<a href="${gif.user.profile_url}">👤 User: ${gif.user.username}</a>` : 'User: Unknown'}
+         ${gif.user && gif.user.website_url ? `<a href="${gif.user.website_url}" target="_blank">🌐 User's website` : ''}
        </div>
    </div>
  </div>

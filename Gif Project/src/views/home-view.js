@@ -9,6 +9,7 @@ import { toSingleView } from './single-gif.js';
 export const toHomeView = (randomGif) => `
 <div id="home">
   <h1>Welcome to GifJoy</h1>
+  <h2>"Spreading Smiles, One Gif at a Time: GifJoy - Your Gateway to Endless Chuckles!"</h2>
   <div id="random-gif-container">
     ${toSingleView(randomGif)}
   </div>
