@@ -48,6 +48,18 @@ body.dark-mode form {
   border: 2px solid rgb(39, 74, 214);
 }
 
+body.dark-mode nav > a {
+  color: black;
+}
+
+body.dark-mode nav a:hover {
+  color: rgb(239, 223, 247);
+}
+
+body.dark-mode footer {
+  color: black;
+}
+
 #darkModeToggle {
   background: none;
   border: none;
@@ -191,6 +203,7 @@ nav {
 nav > a {
   display: inline-block;
   position: relative;
+  color: white;
 }
 
 nav > a::after {
@@ -233,7 +246,7 @@ a#random-gif {
   border: 2px solid rgb(138, 120, 255);
 }
 nav a:hover {
-  color: rgb(239, 223, 247);
+  color: rgb(110, 78, 128);
 }
 
 #trending-view{
@@ -271,5 +284,5 @@ footer {
   justify-content: center;
   padding: 10px;
   background-image: url("../src/assets/background-photo.jpg");
-  color: #081a2f;
+  color: white;
 }
